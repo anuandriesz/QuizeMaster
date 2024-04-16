@@ -1,13 +1,11 @@
 //
 //  Question.swift
-//  Quizzler-iOS13
+//  QuizeMaster
 //
-//  Created by Anuradha Andriesz on 2024-04-15.
-//  Copyright © 2024 The App Brewery. All rights reserved.
+//  Created by Anuradha Andriesz on 2024-04-16.
 //
 
 import Foundation
-
 struct Question {
     let text :String
     let answer: String
