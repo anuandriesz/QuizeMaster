@@ -6,4 +6,3 @@ This GitHub project is a learning resource for iOS development enthusiasts aimin
 
 The app presents users with questions, each having two options (True or False). Users can select their answers, and the app provides immediate feedback on correctness. A key feature of the app is the implementation of a score label, dynamically updating based on the number of correct answers provided by the user.
 ![Simulator Screenshot - iPhone 15 Pro - 2024-04-16 at 12 38 14](https://github.com/anuandriesz/QuizeMaster/assets/80900758/7bc4b0e0-3e11-44d1-bad5-5a5ab488f30b)
-![Simulator Screenshot - iPhone 15 Pro - 2024-04-16 at 12 38 06](https://github.com/anuandriesz/QuizeMaster/assets/80900758/890b1f60-8b05-4f30-86a4-25898c3cbbdb)
