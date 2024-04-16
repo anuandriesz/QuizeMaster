@@ -1,20 +1,15 @@
 //
-//  ViewController.swift
+//  QuizBrain.swift
 //  QuizeMaster
 //
-//  Created by Anuradha Andriesz on 2024-04-15.
+//  Created by Anuradha Andriesz on 2024-04-16.
 //
-import UIKit
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var questionText: UILabel!
-    @IBOutlet weak var falseButton: UIButton!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var progressBar: UIProgressView!
-    
+import Foundation
+
+struct QuizBrain {
     var questionNumber = 0
-    
+    var score = 0
     let quiz = [
         Question(q: "Swift is a programming language developed by Apple Inc.", a: "True"),
         Question(q: "Swift was first introduced at Apple's WWDC in 2014.", a: "True"),
@@ -72,37 +67,32 @@ class ViewController: UIViewController {
         Question(q: "Swift's 'isEmpty' property returns a Boolean value indicating whether the collection is empty.", a: "True")
     ]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateUI()
+    //internal/External param names
+    mutating func checkAnswer(_ userAnswer: String) -> Bool {
+        if userAnswer == quiz[questionNumber].answer {
+            score += 1
+            return true
+        } else {
+            return false
+        }
     }
     
-   
-    @IBAction func answerButtonPressed(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle
-        let actualAnswer = quiz[questionNumber].answer
-        if userAnswer == actualAnswer {
-            sender.backgroundColor = UIColor.green
-        }else {
-            sender.backgroundColor = UIColor.red
-        }
-        
+    func getQuestion() -> String {
+        return quiz[questionNumber].text
+    }
+    
+    func getProgress() -> Float {
+        return Float(questionNumber + 1)/Float(quiz.count)
+    }
+    
+    mutating func nextQuestion() {
         if questionNumber + 1 < quiz.count {
             questionNumber += 1
         } else {
             questionNumber = 0
         }
-        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
-        
     }
-    
-   @objc func updateUI() {
-        questionText.text = quiz[questionNumber].text
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
-       progressBar.progress = Float(questionNumber + 1)/Float(quiz.count)
+   mutating func getScore() -> Int {
+        return score
     }
-    
 }
-
-
